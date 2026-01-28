@@ -9,6 +9,10 @@ import (
 )
 
 func printEvents(events Events, username string) {
+	if len(events) == 0 {
+		fmt.Printf("No recent public activities found for github user: %s\n", username)
+		return
+	}
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 4, ' ', 0)
 	defer w.Flush()
 
